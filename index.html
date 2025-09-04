@@ -25,6 +25,55 @@
             padding: 0 24px;
         }
         
+        /* Navigation */
+        .nav {
+            background-color: white;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+        
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 600;
@@ -175,10 +224,34 @@
             line-height: 1.6;
         }
         
+        /* Founder Section */
+        .founder {
+            padding: 120px 0;
+            background-color: #fafafa;
+            text-align: center;
+        }
+        
+        .founder h2 {
+            font-size: 2.75rem;
+            margin-bottom: 48px;
+            font-weight: 600;
+        }
+        
+        .founder p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 32px auto;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        .founder p:last-child {
+            margin-bottom: 0;
+        }
+        
         /* Testimonial Section */
         .testimonial {
             padding: 120px 0;
-            background-color: #fafafa;
             text-align: center;
         }
         
@@ -202,6 +275,7 @@
         /* Pricing Section */
         .pricing {
             padding: 120px 0;
+            background-color: #fafafa;
             text-align: center;
         }
         
@@ -340,6 +414,32 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border-bottom: 1px solid #e5e5e5;
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 20px 24px;
+                border-bottom: 1px solid #f5f5f5;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
             .container {
                 padding: 0 20px;
             }
@@ -356,12 +456,17 @@
                 font-size: 1.125rem;
             }
             
-            .problem, .framework, .process, .testimonial, .pricing, .cta {
+            .problem, .framework, .process, .testimonial, .pricing, .cta, .founder, .questions, .social-proof {
                 padding: 80px 0;
             }
             
-            .problem h2, .framework h2, .process h2, .pricing h2, .cta h2 {
+            .problem h2, .framework h2, .process h2, .pricing h2, .cta h2, .founder h2, .questions h2, .social-proof h2 {
                 font-size: 2rem;
+            }
+            
+            .question-grid, .proof-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
             
             .puzzle-pieces {
@@ -382,57 +487,69 @@
             }
         }
     </style>
-    </style>
 </head>
 <body>
-    <header class="header">
+    <nav class="nav">
+        <div class="container">
+            <a href="#home" class="nav-logo">AOB Performance</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle">☰</button>
+        </div>
+    </nav>
+
+    <header class="header" id="home">
         <div class="container">
             <h1>AOB Performance</h1>
-            <p class="tagline">Most athletes train with scattered puzzle pieces, hoping something works. We give you the complete performance picture — structured coaching that removes the guesswork.</p>
+            <p class="tagline">Most GAA players jump between random programs hoping something sticks. We give you the Complete Athletic System — proven coaching that removes the guesswork from performance and injury recovery.</p>
         </div>
     </header>
 
     <section class="problem">
         <div class="container">
-            <h2>Stop Training With Missing Pieces</h2>
-            <p>You're jumping between programs, trying random exercises, following conflicting advice. One week it's powerlifting, next week it's CrossFit, then you're chasing the latest Instagram trend. Your training is scattered puzzle pieces with no clear picture.</p>
+            <h2>Stop Training Without a System</h2>
+            <p>You're doing gym sessions that don't translate to the pitch. Following generic programs that ignore GAA demands. Training the same way in-season, off-season, and coming back from injury. Your performance suffers because you don't have a complete system.</p>
         </div>
     </section>
 
     <section class="framework">
         <div class="container">
-            <h2>The Complete Performance Puzzle</h2>
-            <p class="subtitle">Every elite athlete needs the same core pieces working together. We don't guess — we systematically develop every component of performance.</p>
+            <h2>The Complete Athletic System</h2>
+            <p class="subtitle">Every elite GAA player needs the same core components working together. We don't guess — we systematically develop every aspect of your performance based on proven results.</p>
             
             <div class="puzzle-pieces">
                 <div class="piece">
-                    <h3>🎯 Sport-Specific Programming</h3>
-                    <p>Periodised plans tailored to your sport, position, and season phase. In-season maintenance, off-season development — every phase has its purpose.</p>
+                    <h3>GAA-Specific Periodisation</h3>
+                    <p>In-season maintenance that keeps you match-ready. Off-season development that builds your foundation. Transition periods that prevent burnout and injury. Every phase planned for GAA demands.</p>
                 </div>
                 
                 <div class="piece">
-                    <h3>💪 Holistic Physical Development</h3>
-                    <p>Strength, speed, power, mobility, conditioning, recovery. Every piece connects. We develop them systematically, not randomly.</p>
+                    <h3>Complete Physical Development</h3>
+                    <p>Strength for contact. Speed for breaks. Power for scoring. Mobility for injury prevention. Conditioning for 70 minutes. Recovery for consistency. Every component systematically developed.</p>
                 </div>
                 
                 <div class="piece">
-                    <h3>🔧 Adaptive Exercise Selection</h3>
-                    <p>Injured? Limited equipment? Travel schedule? We always find ways to keep progressing. Your program adapts to your life, not the other way around.</p>
+                    <h3>Injury Recovery Integration</h3>
+                    <p>Coming back from injury? We don't just get you moving — we get you back to peak performance. Systematic progression that rebuilds strength while preventing re-injury.</p>
                 </div>
                 
                 <div class="piece">
-                    <h3>🍎 Lifestyle Integration</h3>
-                    <p>Nutrition, sleep, and recovery guidance that supports performance in all aspects of life. Sport is just one piece of who you are.</p>
+                    <h3>Performance Lifestyle</h3>
+                    <p>Nutrition strategies for training and match days. Sleep optimisation for recovery. Stress management for consistency. Your life outside GAA impacts your performance on the pitch.</p>
                 </div>
                 
                 <div class="piece">
-                    <h3>📱 Ongoing Consultation</h3>
-                    <p>Weekly check-ins via WhatsApp and TrueCoach. Exercise video review and feedback. You're never training alone.</p>
+                    <h3>Ongoing Results Tracking</h3>
+                    <p>Weekly check-ins via WhatsApp and TrueCoach. Video analysis and feedback. Program adjustments based on your response, not generic templates.</p>
                 </div>
                 
                 <div class="piece">
-                    <h3>📈 Progress Tracking</h3>
-                    <p>Every session logged, every improvement tracked. Data-driven adjustments based on your response, recovery, and goals.</p>
+                    <h3>Systematic Progress</h3>
+                    <p>Every session logged, every improvement measured. Data-driven decisions that keep you progressing whether you're building fitness or maintaining form.</p>
                 </div>
             </div>
         </div>
@@ -440,37 +557,48 @@
 
     <section class="process">
         <div class="container">
-            <h2>How We Build Your Complete Picture</h2>
+            <h2>How We Build Your Complete System</h2>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Initial Consultation</h3>
-                    <p>Email consultation to clarify your goals, assess your current situation, and map out your performance plan.</p>
+                    <h3>Free Performance Assessment</h3>
+                    <p>Complete our GAA performance assessment to identify your current strengths, weaknesses, and specific needs based on your position and season phase.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Customised Programming</h3>
-                    <p>Receive your personalised plan via TrueCoach app. Every exercise, every rep, every rest period has been planned for your goals.</p>
+                    <h3>Strategy Consultation</h3>
+                    <p>Based on your assessment, we'll discuss your specific goals and map out your Complete Athletic System approach.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Execute & Track</h3>
-                    <p>Complete your sessions while tracking progress. The app guides you through each workout with video demonstrations and progress logging.</p>
+                    <h3>Customised Programming</h3>
+                    <p>Receive your GAA-specific plan via TrueCoach app. Every exercise, every progression, every recovery protocol planned for your needs.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Weekly Optimisation</h3>
-                    <p>Regular check-ins via WhatsApp or feedback forms. Your program evolves based on your response, ensuring continuous progress.</p>
+                    <h3>Execute & Optimise</h3>
+                    <p>Complete sessions with video guidance. Weekly check-ins ensure continuous progress whether you're building fitness or maintaining form.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="testimonial">
+    <section class="founder" id="about">
+        <div class="container">
+            <h2>Results-Based GAA Performance Coaching</h2>
+            <p>After years of coaching athletes through performance development and injury recovery, I've seen what works and what doesn't. Generic programs fail because they ignore GAA's unique demands. Cookie-cutter approaches break down when players get injured or need to transition between seasons.</p>
+            
+            <p>That's why I built the Complete Athletic System — a systematic approach that adapts to exactly where you are: building fitness in the off-season, maintaining form during championship runs, or getting back to peak performance after injury.</p>
+            
+            <p>This isn't theory. It's a proven system based on years of real results with GAA players who needed more than generic gym programs.</p>
+        </div>
+    </section>
+
+    <section class="testimonial" id="results">
         <div class="container">
             <blockquote>"Training smarter with AOB has made me quicker, stronger, and more confident on the pitch."</blockquote>
             <cite>— Mark D., Current Client</cite>
@@ -498,7 +626,7 @@
         </div>
     </section>
 
-    <section class="cta">
+    <section class="cta" id="contact">
         <div class="container">
             <h2>Ready For Your Complete Athletic System?</h2>
             <p>Stop wasting time with generic programs that ignore GAA demands. Get the systematic approach that develops every aspect of your performance.</p>
