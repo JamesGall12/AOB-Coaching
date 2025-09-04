@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOB Performance - Complete Athletic Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .header .tagline {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e5e5e5;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .problem h2 {
+            font-size: 2.75rem;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+        
+        .problem p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        /* Framework Section */
+        .framework {
+            padding: 120px 0;
+            background-color: #fafafa;
+        }
+        
+        .framework h2 {
+            text-align: center;
+            font-size: 2.75rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        
+        .framework .subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #4a4a4a;
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 80px;
+        }
+        
+        .puzzle-pieces {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+        }
+        
+        .piece {
+            background: white;
+            padding: 40px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.2s ease;
+        }
+        
+        .piece:hover {
+            border-color: #1a1a1a;
+        }
+        
+        .piece h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .piece p {
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 120px 0;
+        }
+        
+        .process h2 {
+            text-align: center;
+            font-size: 2.75rem;
+            margin-bottom: 80px;
+            font-weight: 600;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 48px;
+        }
+        
+        .step {
+            text-align: left;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: #1a1a1a;
+            color: white;
+            border-radius: 4px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .step p {
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        /* Testimonial Section */
+        .testimonial {
+            padding: 120px 0;
+            background-color: #fafafa;
+            text-align: center;
+        }
+        
+        .testimonial blockquote {
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+            color: #1a1a1a;
+        }
+        
+        .testimonial cite {
+            font-size: 1.125rem;
+            color: #4a4a4a;
+            font-style: normal;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 2.75rem;
+            margin-bottom: 80px;
+            font-weight: 600;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 48px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            border-color: #1a1a1a;
+        }
+        
+        .pricing-card.featured {
+            border-color: #1a1a1a;
+            border-width: 2px;
+        }
+        
+        .pricing-card.featured::before {
+            content: "Best Value";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1a1a;
+            color: white;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .price-period {
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+        }
+        
+        .savings {
+            background: #f0f9f0;
+            color: #2d5f2d;
+            padding: 8px 16px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pricing-card p {
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.75rem;
+            margin-bottom: 24px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e5e5e5;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1a1a1a;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        .email {
+            margin-top: 32px;
+            font-size: 1.125rem;
+            color: #a5a5a5;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #fafafa;
+            color: #4a4a4a;
+            text-align: center;
+            padding: 48px 0;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .header {
+                padding: 80px 0;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header .tagline {
+                font-size: 1.125rem;
+            }
+            
+            .problem, .framework, .process, .testimonial, .pricing, .cta {
+                padding: 80px 0;
+            }
+            
+            .problem h2, .framework h2, .process h2, .pricing h2, .cta h2 {
+                font-size: 2rem;
+            }
+            
+            .puzzle-pieces {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .piece, .pricing-card {
+                padding: 32px;
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>AOB Performance</h1>
+            <p class="tagline">Most athletes train with scattered puzzle pieces, hoping something works. We give you the complete performance picture — structured coaching that removes the guesswork.</p>
+        </div>
+    </header>
+
+    <section class="problem">
+        <div class="container">
+            <h2>Stop Training With Missing Pieces</h2>
+            <p>You're jumping between programs, trying random exercises, following conflicting advice. One week it's powerlifting, next week it's CrossFit, then you're chasing the latest Instagram trend. Your training is scattered puzzle pieces with no clear picture.</p>
+        </div>
+    </section>
+
+    <section class="framework">
+        <div class="container">
+            <h2>The Complete Performance Puzzle</h2>
+            <p class="subtitle">Every elite athlete needs the same core pieces working together. We don't guess — we systematically develop every component of performance.</p>
+            
+            <div class="puzzle-pieces">
+                <div class="piece">
+                    <h3>🎯 Sport-Specific Programming</h3>
+                    <p>Periodised plans tailored to your sport, position, and season phase. In-season maintenance, off-season development — every phase has its purpose.</p>
+                </div>
+                
+                <div class="piece">
+                    <h3>💪 Holistic Physical Development</h3>
+                    <p>Strength, speed, power, mobility, conditioning, recovery. Every piece connects. We develop them systematically, not randomly.</p>
+                </div>
+                
+                <div class="piece">
+                    <h3>🔧 Adaptive Exercise Selection</h3>
+                    <p>Injured? Limited equipment? Travel schedule? We always find ways to keep progressing. Your program adapts to your life, not the other way around.</p>
+                </div>
+                
+                <div class="piece">
+                    <h3>🍎 Lifestyle Integration</h3>
+                    <p>Nutrition, sleep, and recovery guidance that supports performance in all aspects of life. Sport is just one piece of who you are.</p>
+                </div>
+                
+                <div class="piece">
+                    <h3>📱 Ongoing Consultation</h3>
+                    <p>Weekly check-ins via WhatsApp and TrueCoach. Exercise video review and feedback. You're never training alone.</p>
+                </div>
+                
+                <div class="piece">
+                    <h3>📈 Progress Tracking</h3>
+                    <p>Every session logged, every improvement tracked. Data-driven adjustments based on your response, recovery, and goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <h2>How We Build Your Complete Picture</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Initial Consultation</h3>
+                    <p>Email consultation to clarify your goals, assess your current situation, and map out your performance plan.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Customised Programming</h3>
+                    <p>Receive your personalised plan via TrueCoach app. Every exercise, every rep, every rest period has been planned for your goals.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Execute & Track</h3>
+                    <p>Complete your sessions while tracking progress. The app guides you through each workout with video demonstrations and progress logging.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Weekly Optimisation</h3>
+                    <p>Regular check-ins via WhatsApp or feedback forms. Your program evolves based on your response, ensuring continuous progress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="container">
+            <blockquote>"Training smarter with AOB has made me quicker, stronger, and more confident on the pitch."</blockquote>
+            <cite>— Mark D., Current Client</cite>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Simple, Transparent Pricing</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="price">€100</div>
+                    <div class="price-period">per month</div>
+                    <p>Cancel anytime<br>Perfect for testing the waters</p>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="price">€540</div>
+                    <div class="price-period">6 months upfront</div>
+                    <div class="savings">Save €60</div>
+                    <p>Commit to the process<br>See real transformation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready For Your Complete Athletic System?</h2>
+            <p>Stop wasting time with generic programs that ignore GAA demands. Get the systematic approach that develops every aspect of your performance.</p>
+            <a href="mailto:antooboyle@gmail.com?subject=Free GAA Performance Assessment" class="cta-button">Get Your Free Assessment</a>
+            <div class="email">antooboyle@gmail.com</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AOB Performance. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
